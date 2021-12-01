@@ -6,11 +6,23 @@
 #    By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 19:49:42 by vfiszbin          #+#    #+#              #
-#    Updated: 2021/11/28 21:38:12 by vfiszbin         ###   ########.fr        #
+#    Updated: 2021/12/01 20:29:13 by vfiszbin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_isalpha.c
+SRCS = 	ft_isdigit.c\
+		ft_isalpha.c\
+		ft_isalnum.c\
+		ft_isascii.c\
+		ft_isprint.c\
+		ft_strlen.c\
+		ft_memset.c\
+		ft_bzero.c\
+		ft_memcpy.c\
+		ft_memmove.c\
+		ft_substr.c\
+		ft_strlcpy.c\
+		ft_strlcat.c\
 
 OBJS = ${SRCS:.c=.o}
 
@@ -27,7 +39,7 @@ CFLAGS = -Wall -Wextra -Werror
 HEADER = libft.h
 
 ${NAME}: ${OBJS}
-	ar rc libft.a ${HEADER} ${OBJS}
+	ar rc ${NAME} ${OBJS}
 
 all: ${NAME}
 
@@ -40,9 +52,9 @@ fclean: clean
 re: fclean all
 
 ###Pour tester sur Ubuntu, à RETIRER !!!!!!!!!!!!!!!!
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+#so:
+#	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+#	gcc -nostartfiles -shared -o libft.so $(OBJS)
 ###
 
 .PHONY: all clean fclean re
