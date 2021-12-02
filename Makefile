@@ -6,7 +6,7 @@
 #    By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 19:49:42 by vfiszbin          #+#    #+#              #
-#    Updated: 2021/12/01 20:29:13 by vfiszbin         ###   ########.fr        #
+#    Updated: 2021/12/02 21:35:34 by vfiszbin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,11 @@ SRCS = 	ft_isdigit.c\
 		ft_substr.c\
 		ft_strlcpy.c\
 		ft_strlcat.c\
+		ft_toupper.c\
+		ft_tolower.c\
+		ft_strchr.c\
+		ft_strrchr.c\
+		ft_strncmp.c\
 
 OBJS = ${SRCS:.c=.o}
 
