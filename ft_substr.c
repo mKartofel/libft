@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:38:06 by vfiszbin          #+#    #+#             */
-/*   Updated: 2021/11/29 19:41:26 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:34:47 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	ret_str = malloc(sizeof(char) * (len + 1));
-	if (!ret_str)
+	if (!ret_str || !s)
 		return (NULL);
 	i = 0;
 	while (i < len && start < len)

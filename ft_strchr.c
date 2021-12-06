@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 20:43:52 by vfiszbin          #+#    #+#             */
-/*   Updated: 2021/12/02 21:06:40 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:40:17 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	char	*ps;
 
+	ps = (char *)s;
 	i = 0;
-	while (s[i])
+	while (ps[i])
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
+		if (ps[i] == c)
+			return (&ps[i]);
 		i++;
 	}
 	if (c == '\0')
-		return ((char *)&s[i]);
+		return (&ps[i]);
 	return (NULL);
 }

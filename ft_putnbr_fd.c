@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 19:56:41 by vfiszbin          #+#    #+#             */
-/*   Updated: 2021/12/06 12:05:21 by vfiszbin         ###   ########.fr       */
+/*   Created: 2021/12/06 18:40:18 by vfiszbin          #+#    #+#             */
+/*   Updated: 2021/12/06 18:46:02 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-
-	if (size == 0)
-		return (ft_strlen(src));
-	i = 0;
-	while (src[i] != '\0' && i < size - 1)
+	if (n == -2147483648)
 	{
-		dst[i] = src[i];
-		i++;
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
+	if (n < 0)
+	{
+		n *= (-1);
+		ft_putchar_fd('-', fd);
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + 48, fd);
 }
