@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:23:13 by vfiszbin          #+#    #+#             */
-/*   Updated: 2021/12/06 14:56:08 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:17:51 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,17 @@ static size_t	ft_findend(char const *s1, char const *set)
 	return (0);
 }
 
+static char	*empty_malloc(void)
+{
+	char	*ret_str;
+
+	ret_str = malloc(sizeof(char));
+	if (!ret_str)
+		return (NULL);
+	ret_str[0] = '\0';
+	return (ret_str);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
@@ -68,7 +79,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = ft_findbegin(s1, set);
 	j = ft_findend(s1, set);
 	if ((i == 0 && j == 0) || ft_strlen(s1) == 0)
-		return ("");
+		return (empty_malloc());
 	ret_str = malloc(sizeof(char) * (j - i + 2));
 	if (!ret_str)
 		return (NULL);

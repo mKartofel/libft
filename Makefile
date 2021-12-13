@@ -6,7 +6,7 @@
 #    By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 19:49:42 by vfiszbin          #+#    #+#              #
-#    Updated: 2021/12/06 18:41:49 by vfiszbin         ###   ########.fr        #
+#    Updated: 2021/12/13 20:22:27 by vfiszbin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,6 @@ CFLAGS = -Wall -Wextra -Werror
 .c.o:
 	${CC} ${CFLAGS} -c $ $< -o ${<:.c=.o}
 
-HEADER = libft.h
 
 ${NAME}: ${OBJS}
 	ar rc ${NAME} ${OBJS}
@@ -71,11 +70,5 @@ fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
-
-###Pour tester sur Ubuntu, à RETIRER !!!!!!!!!!!!!!!!
-#so:
-#	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-#	gcc -nostartfiles -shared -o libft.so $(OBJS)
-###
 
 .PHONY: all clean fclean re

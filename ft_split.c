@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:01:49 by vfiszbin          #+#    #+#             */
-/*   Updated: 2021/12/06 16:44:26 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2021/12/13 20:07:15 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,26 @@ static int	ft_word_len(char const *s, char c)
 	return (i);
 }
 
-static int	ft_word_count(char const *s, char c)
+static int	ft_word_count(char const *s, int c)
 {
 	int	i;
 	int	words;
 
 	if (ft_strlen(s) == 0)
 		return (0);
+	if (c == 0)
+		return (1);
 	i = 0;
 	words = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		while (s[i] != c && s[i] != '\0')
 		{
-			if (s[i + 1] == c)
+			if (s[i + 1] == c && s[i] != c)
 				words++;
 			i++;
 		}
-		while (s[i] == c)
+		while (s[i] != '\0' && s[i] == c)
 			i++;
 	}
 	if (s[i - 1] != c)
