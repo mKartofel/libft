@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 10:41:04 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/05/26 10:48:14 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/05/26 11:21:35 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 
 	if (!del || !lst || !*lst)
 		return ;
-
 	cur = *lst;
 	while (cur)
 	{

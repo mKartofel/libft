@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 10:49:18 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/05/26 10:52:41 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/05/26 11:21:49 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!f)
 		return ;
-
 	while (lst)
 	{
 		(*f)(lst->content);
