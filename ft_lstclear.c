@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 19:34:55 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/05/26 09:55:29 by vfiszbin         ###   ########.fr       */
+/*   Created: 2022/05/26 10:41:04 by vfiszbin          #+#    #+#             */
+/*   Updated: 2022/05/26 10:48:14 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*Allocates (with malloc) and returns a new node.
-The member variable ’content’ is initialized with
-the value of the parameter ’content’.  The variable
-’next’ is initialized to NULL*/
-t_list	*ft_lstnew(void *content)
+/*Deletes and frees the given node and every
+successor of that node, using the function ’del’
+and free.
+Finally, the pointer to the list must be set to
+NULL*/
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*new_el;
+	t_list	*tmp;
+	t_list	*cur;
 
-	new_el = malloc(sizeof(t_list));
-	if (!new_el)
-		return (NULL);
-	new_el->content = content;
-	new_el->next = NULL;
-	return (new_el);
+	if (!del || !lst || !*lst)
+		return ;
+
+	cur = *lst;
+	while (cur)
+	{
+		tmp = cur;
+		cur = cur->next;
+		ft_lstdelone(tmp, del);
+	}
+	*lst = NULL;
 }

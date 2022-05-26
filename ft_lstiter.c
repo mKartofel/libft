@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 19:34:55 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/05/26 09:55:29 by vfiszbin         ###   ########.fr       */
+/*   Created: 2022/05/26 10:49:18 by vfiszbin          #+#    #+#             */
+/*   Updated: 2022/05/26 10:52:41 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*Allocates (with malloc) and returns a new node.
-The member variable ’content’ is initialized with
-the value of the parameter ’content’.  The variable
-’next’ is initialized to NULL*/
-t_list	*ft_lstnew(void *content)
+/*Iterates the list ’lst’ and applies the function
+’f’ on the content of each node*/
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*new_el;
+	if (!f)
+		return ;
 
-	new_el = malloc(sizeof(t_list));
-	if (!new_el)
-		return (NULL);
-	new_el->content = content;
-	new_el->next = NULL;
-	return (new_el);
+	while (lst)
+	{
+		(*f)(lst->content);
+		lst = lst->next;
+	}
 }
