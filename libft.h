@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:00:48 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/05/26 11:20:39 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/05/30 19:11:52 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -50,6 +51,20 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+int		contains_eol(const char *s);
+
+char	*get_next_line(int fd);
+
+# define HEXA "0123456789abcdef"
+# define HEXAMAJ "0123456789ABCDEF"
+
+int		ft_printf(const char *fmt, ...);
+void	ft_printstr_fd(char *s, int fd, int *nb_char);
+void	ft_printchar_fd(char c, int fd, int *nb_char);
+void	ft_printnbr_fd(int n, int fd, int *nb_char);
+void	ft_printnbr_base(unsigned int nbr, char *base, int *nb_char);
+void	ft_printptr_base(unsigned long long nbr, char *base, int *nb_char);
+void	ft_print_uint_fd(unsigned int n, int fd, int *nb_char);
 
 typedef struct s_list
 {

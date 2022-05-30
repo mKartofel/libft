@@ -6,7 +6,7 @@
 #    By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 19:49:42 by vfiszbin          #+#    #+#              #
-#    Updated: 2022/05/26 11:08:42 by vfiszbin         ###   ########.fr        #
+#    Updated: 2022/05/30 19:17:30 by vfiszbin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,15 @@ SRCS = 	ft_isdigit.c\
 		ft_putstr_fd.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
+		get_next_line.c\
+		get_next_line_utils.c\
+		ft_print_uint_fd.c\
+		ft_printchar_fd.c\
+		ft_printnbr_base.c\
+		ft_printnbr_fd.c\
+		ft_printptr_base.c\
+		ft_printstr_fd.c\
+		ft_printf.c\
 
 OBJS = ${SRCS:.c=.o}
 
@@ -64,10 +73,12 @@ NAME = libft.a
 CC = gcc
 RM = rm -f
 
+BUFFER_SIZE = 42
+
 CFLAGS = -Wall -Wextra -Werror
 
 .c.o:
-	${CC} ${CFLAGS} -c $ $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -D BUFFER_SIZE=${BUFFER_SIZE} -c $ $< -o ${<:.c=.o}
 
 
 ${NAME}: ${OBJS}

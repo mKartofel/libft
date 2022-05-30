@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 10:41:04 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/05/26 11:21:35 by vfiszbin         ###   ########.fr       */
+/*   Created: 2021/12/18 16:49:43 by vfiszbin          #+#    #+#             */
+/*   Updated: 2021/12/18 19:47:40 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-/*Deletes and frees the given node and every
-successor of that node, using the function ’del’
-and free.
-Finally, the pointer to the list must be set to
-NULL*/
-void	ft_lstclear(t_list **lst, void (*del)(void*))
-{
-	t_list	*tmp;
-	t_list	*cur;
+# include <stdlib.h>
+# include <unistd.h>
 
-	if (!del || !lst || !*lst)
-		return ;
-	cur = *lst;
-	while (cur)
-	{
-		tmp = cur;
-		cur = cur->next;
-		ft_lstdelone(tmp, del);
-	}
-	*lst = NULL;
-}
+char	*get_next_line(int fd);
+int		contains_eol(const char *s);
+char	*ft_strjoin(char *s1, char const *s2);
+size_t	ft_strlen(const char *str);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+char	*ft_strchr(const char *s, int c);
+
+#endif
