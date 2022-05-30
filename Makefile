@@ -6,7 +6,7 @@
 #    By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 19:49:42 by vfiszbin          #+#    #+#              #
-#    Updated: 2022/05/30 19:17:30 by vfiszbin         ###   ########.fr        #
+#    Updated: 2022/05/30 19:42:18 by vfiszbin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,15 @@ SRCS = 	ft_isdigit.c\
 		ft_putstr_fd.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
+		ft_lstnew.c\
+		ft_lstadd_front.c\
+		ft_lstsize.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
+		ft_lstiter.c\
+		ft_lstmap.c\
 		get_next_line.c\
 		get_next_line_utils.c\
 		ft_print_uint_fd.c\
@@ -55,18 +64,6 @@ SRCS = 	ft_isdigit.c\
 		ft_printf.c\
 
 OBJS = ${SRCS:.c=.o}
-
-BONUS = ft_lstnew.c\
-		ft_lstadd_front.c\
-		ft_lstsize.c\
-		ft_lstlast.c\
-		ft_lstadd_back.c\
-		ft_lstdelone.c\
-		ft_lstclear.c\
-		ft_lstiter.c\
-		ft_lstmap.c\
-
-OBJS_BONUS = ${BONUS:.c=.o}
 
 NAME = libft.a
 
@@ -87,14 +84,11 @@ ${NAME}: ${OBJS}
 all: ${NAME}
 
 clean:
-	${RM} ${OBJS} $(OBJS_BONUS)
+	${RM} ${OBJS}
 
 fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
 
-bonus: ${OBJS} ${OBJS_BONUS}
-	ar rc ${NAME} ${OBJS} ${OBJS_BONUS}
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
