@@ -65,6 +65,8 @@ SRCS = 	ft_isdigit.c\
 
 OBJS = ${SRCS:.c=.o}
 
+INCLUDES = libft.h
+
 NAME = libft.a
 
 CC = gcc
@@ -78,7 +80,7 @@ CFLAGS = -Wall -Wextra -Werror
 	${CC} ${CFLAGS} -D BUFFER_SIZE=${BUFFER_SIZE} -c $ $< -o ${<:.c=.o}
 
 
-${NAME}: ${OBJS}
+${NAME}: ${INCLUDES} ${OBJS}
 	ar rc ${NAME} ${OBJS}
 
 all: ${NAME}
